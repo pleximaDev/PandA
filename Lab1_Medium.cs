@@ -17,10 +17,9 @@ namespace Lab1_Medium
         static void Main(string[] args)
         {
 
-            Medium10();
-            //Medium1();
+            //Medium10();
+            Medium1();
             //Medium2();
-            Console.WriteLine(double.MaxValue);
 
             //Console.WriteLine(GetEndingOfNum(3));
 
@@ -72,7 +71,7 @@ namespace Lab1_Medium
             /* Sum s of s = cosx + (cos 2x)/(2^2) + ... + (cos nx)/(n^2) + ...  till current abs element is smaller than eps = 0,0001 */
             const double eps = 0.0001;
             double s = 0;
-            double x = 30;
+            double x = Math.PI;
 
             Console.WriteLine("Enter argument x of the cosinus:");
             try
@@ -83,6 +82,7 @@ namespace Lab1_Medium
             catch (FormatException f)
             {
                 Console.WriteLine(f.Message);
+                Console.WriteLine("Default x's been used...");
             }
 
 
