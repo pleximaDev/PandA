@@ -61,7 +61,7 @@ namespace Lab1_easy
              * s = sumOf( cos(n * x)/x^(n-1)), n = 1..9 
              */
 
-            double x = 30;
+            double x = Math.PI;
             double s = 0;
 
             Console.WriteLine("Enter the argument x of the cosinus" +
