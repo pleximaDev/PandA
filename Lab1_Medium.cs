@@ -16,12 +16,19 @@ namespace Lab1_Medium
     {
         static void Main(string[] args)
         {
-
-            //Medium10();
-            Medium1();
-            //Medium2();
-
             //Console.WriteLine(GetEndingOfNum(3));
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Task #10:");
+            Medium10();
+            Console.WriteLine("--------------------\n\n\n");
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Task #1:");
+            Medium1();
+            Console.WriteLine("--------------------\n\n\n");
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Task #2:");
+            Medium2();
+            Console.WriteLine("--------------------");
 
         }
         static void Medium10()
@@ -36,15 +43,14 @@ namespace Lab1_Medium
              */
 
             int numOfCurr = 3;
-            double a_prev1 = 1; // 1/1
-            double b_prev1 = 1;
-            double a_prev2 = 2; // 2/1
-            double b_prev2 = 1;
-            double a_curr = 3; // 3/2
-            double b_curr = 2;
-            double diff = double.MaxValue;
+            double a_prev1 = 1, /* 1/1 */
+            b_prev1 = 1,
+            a_prev2 = 2, /* 2/1 */
+            b_prev2 = 1,
+            a_curr = 3, /* 3/2 */
+            b_curr = 2,
+            diff = double.MaxValue;
 
-            
             for (; diff > 0.001; )
             {
                 numOfCurr++;
@@ -58,13 +64,10 @@ namespace Lab1_Medium
                 b_curr = b_prev1 + b_prev2;
                 diff = (a_curr / b_curr) - (a_prev2 / b_prev2);
             }
-            //Console.WriteLine("The answer is #{0} = {1}/{2} = {3}", numOfCurr, a_curr, b_curr, a_curr/b_curr);
             Console.WriteLine("The answer is {0}{1} member = {2}/{3} = {4}",
                 numOfCurr, GetEndingOfNum(numOfCurr), a_curr, b_curr, a_curr / b_curr);
             Console.WriteLine("Difference = {0}", diff);
             Console.WriteLine("Prev1 = {0}/{1} and Prev2 = {2}/{3}", a_prev1, b_prev1, a_prev2, b_prev2);
-
-
         }
         static void Medium1()
         {
@@ -85,7 +88,6 @@ namespace Lab1_Medium
                 Console.WriteLine("Default x's been used...");
             }
 
-
             for (double n = 1; Math.Abs(Math.Cos(n * x)/(n * n))> eps; n++)
             {
                 //s += Math.Cos(x * n)/Math.Pow(n, 2);
@@ -99,17 +101,15 @@ namespace Lab1_Medium
         {
             /* Biggest multiplier n for which product p = 1 * 4 * 7 *...* n smaller than L = 30000 */
             /* 1 4 7 10 13*/
-            double p = 1, n = 1;
-            const double L = 30000;
+            int p = 1, n = 1;
+            const int L = 30000;
             for (; p <= L; )
             {
                 n += 3;
                 p *= n;
-                Console.WriteLine(n);
-                
+                //Console.WriteLine(n);
             }
-            Console.WriteLine("p = {0}, n = {1}", p/n, n-3);
-
+            Console.WriteLine("Product p = {0}, multiplier n = {1}", p/n, n-3);
         }
         private static string GetEndingOfNum(int num)
         {
