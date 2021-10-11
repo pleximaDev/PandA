@@ -7,13 +7,20 @@ namespace Lab2_Medium
     {
         static void Main(string[] args)
         {
-            //Medium12();
-            //List<int> grades = new List<int>();
+            Console.WriteLine("--------------------");
+            Console.WriteLine("Task #10:");
             Medium10();
+            Console.WriteLine("--------------------\n\n\n" +
+                "--------------------\nTask #11:");
+            Medium11();
+            Console.WriteLine("--------------------\n\n\n" +
+                "--------------------\nTask #12:");
+            Medium12();
+            Console.WriteLine("--------------------");
         }
         static private void Medium10()
         {
-            int n = 4;
+            int n = 3;
             int counter = 0;
 
             Console.WriteLine("How many students are in the group?");
@@ -43,8 +50,47 @@ namespace Lab2_Medium
             }
             Console.WriteLine($"Number of students without '2' and '3' grades: {counter}");
         }
-        //static private void Medium11()
-        //{ }
+        static private void Medium11()
+        {
+            int n = 3;
+            int counter = 0;
+            bool undersuming = false;
+            double average = 0;
+            int grade = 0;
+
+            Console.WriteLine("How many students are in the group?");
+            Console.Write("n = ");
+
+            try
+            {
+                n = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException f)
+            {
+                Console.WriteLine(f.Message);
+                return;
+            }
+
+            for (int i = 1; i <= n; i++)
+            {
+                undersuming = false;
+
+                for (int j = 1; j <= 4; j++)
+                {
+                    Console.WriteLine($"Enter {j}{GetEndingOfNum(j)} grade of {i}{GetEndingOfNum(i)} student:");
+
+                    grade = int.Parse(Console.ReadLine());
+
+                    average += grade;
+
+                    if (!undersuming && grade < 4) undersuming = true;
+                }
+                if (undersuming) counter++;
+            }
+            Console.WriteLine(
+                $"Number of undersuming students (have '2' and '3' grades): {counter}" +
+                $"\nAverage group score: {average/(n*4)}");
+        }
 
         static private void Medium12()
         {
