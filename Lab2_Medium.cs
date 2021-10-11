@@ -7,49 +7,42 @@ namespace Lab2_Medium
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Medium12();
-            /*
-            List<string> lis = new List<string>
-            {
-                "1", "1.", "square"
-            };
-            */
-
-            Dictionary<string, string> figure = new Dictionary<string, string>();
-            //List<string> keys = ["1","1", "square"];
-            //figure.Add(keys, "Square");
-            figure.Add("1", "Square");
-            figure.Add("1.", "Square");
-            figure.Add("square", "Square");
-
-            figure.Add("2", "Circle");
-            figure.Add("2.", "Circle");
-            figure.Add("circle", "Circle");
-
-            figure.Add("3", "Equilateral Triangle");
-            figure.Add("3.", "Equilateral Triangle");
-            figure.Add("triangle", "Equilateral Triangle");
-
-            Console.WriteLine(figure.ContainsValue("Square"));
-            Console.WriteLine(figure.ContainsKey("Square"));
-            Console.WriteLine(figure.ContainsKey("1"));
-            Console.WriteLine(figure.ContainsKey("1."));
-            Console.WriteLine(figure["triangle"]);
-
-            string test = "sqUaRe";
-
-            if (figure.ContainsKey(test.ToLower()))
-            {
-                Console.WriteLine(figure[test.ToLower()]);
-            }
-            
-
+            //Medium12();
+            //List<int> grades = new List<int>();
+            Medium10();
         }
-        //static private void Medium10()
-        //{
-        //    int n = 14;
-        //}
+        static private void Medium10()
+        {
+            int n = 4;
+            int counter = 0;
+
+            Console.WriteLine("How many students are in the group?");
+            Console.Write("n = ");
+
+            try
+            {
+                n = int.Parse(Console.ReadLine());
+            }
+            catch (FormatException f)
+            {
+                Console.WriteLine(f.Message);
+                return;
+            }
+            for (int i = 1; i <= n; i++)
+            {
+                counter++;
+                for (int j = 1; j <= 4; j++)
+                {
+                    Console.WriteLine($"Enter {j}{GetEndingOfNum(j)} grade of {i}{GetEndingOfNum(i)} student:");
+                    if (int.Parse(Console.ReadLine()) < 4)
+                    {
+                        counter--;
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine($"Number of students without '2' and '3' grades: {counter}");
+        }
         //static private void Medium11()
         //{ }
 
@@ -81,6 +74,7 @@ namespace Lab2_Medium
             catch (FormatException f)
             {
                 Console.WriteLine(f.Message);
+                return;
             }
 
             while (n --> 0)
@@ -94,6 +88,7 @@ namespace Lab2_Medium
                 catch (FormatException f)
                 {
                     Console.WriteLine(f.Message);
+                    return;
                 }
 
                 Console.WriteLine("Choose what do you want to calculate with r:\n\n" +
@@ -125,13 +120,39 @@ namespace Lab2_Medium
                         break;
                 }
 
-                Console.WriteLine($"Area of " +
-                    $"{(figure.ContainsKey(choice.ToLower()) ? figure[choice.ToLower()] : "")}" +
+                Console.WriteLine(
+                    $"Area of " +
+                    $"{(figure.ContainsKey(choice.ToLower()) ? figure[choice.ToLower()] : choice)}" +
                     $" S = {area}");
-                //Console.WriteLine("Area of {0} == {1}",
-                //    (choice == "1" || choice == "1." || )?:);
             }
+        }
+        private static string GetEndingOfNum(int num)
+        {
+            int ones = num % 10;
 
+            int tens = (num / 10) % 10;
+            string ending = "";
+
+            if (tens == 1) return "th";
+            else
+            {
+                switch (ones)
+                {
+                    case 1:
+                        ending = "st";
+                        break;
+                    case 2:
+                        ending = "nd";
+                        break;
+                    case 3:
+                        ending = "rd";
+                        break;
+                    default:
+                        ending = "th";
+                        break;
+                }
+            }
+            return ending;
         }
     }
 }
