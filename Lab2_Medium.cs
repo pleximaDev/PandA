@@ -1,5 +1,5 @@
 using System;
-//using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Lab2_Medium
 {
@@ -18,6 +18,7 @@ namespace Lab2_Medium
             Medium12();
             Console.WriteLine("--------------------");
         }
+
         static private void Medium10()
         {
             int n = 3;
@@ -50,6 +51,7 @@ namespace Lab2_Medium
             }
             Console.WriteLine($"Number of students without '2' and '3' grades: {counter}");
         }
+
         static private void Medium11()
         {
             int n = 3;
