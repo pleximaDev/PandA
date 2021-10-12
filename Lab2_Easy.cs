@@ -36,13 +36,15 @@ namespace Lab2_Easy
 
             if (a > 0)
             {
-                c = Math.Max(a, b);
+                //c = Math.Max(a, b);
+                c = a > b ? a : b;
             }
             else
             {
-                c = Math.Min(a, b);
+                //c = Math.Min(a, b);
+                c = a < b ? a : b;
             }
-            Console.WriteLine("c = {0} = {1}", (a > 0) ? "max(a, b)": "min(a, b)", c);
+            Console.WriteLine("c = {0} = {1}", (a > 0) ? "max(a, b)" : "min(a, b)", c);
         }
 
         private static void Easy4()
@@ -62,10 +64,11 @@ namespace Lab2_Easy
             catch (FormatException f)
             {
                 Console.WriteLine(f.Message);
-                Console.WriteLine("\nDefault values of a and b were used...");
+                Console.WriteLine("\nDefault values of a, b, c were used...");
             }
 
-            z = Math.Max(Math.Min(a, b), c);
+            //z = Math.Max(Math.Min(a, b), c);
+            z = ((a < b ? a : b) > c ? (a < b ? a : b) : c);
 
             Console.WriteLine("z = {0} = {1}",  "max(min(a, b), c)", z);
         }
