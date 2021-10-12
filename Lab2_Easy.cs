@@ -88,7 +88,7 @@ namespace Lab2_Easy
              * D = 2 * Math.Sqrt(area/PI)
              */
             double diameter = 2 * Math.Sqrt(input1.r / Math.PI);
-            Console.WriteLine($"Does Square with area = {input1.s} fits in Circle with area = {input1.r}?\n");
+            Console.WriteLine($"Does Square with area = {input1.s} fit in Circle with area = {input1.r}?\n");
             if (diagonal <= diameter)
                 Console.WriteLine("Yes. Square fits in circle\n");
             else
@@ -96,7 +96,7 @@ namespace Lab2_Easy
 
             diagonal = Math.Sqrt(input2.s) * Math.Sqrt(2);
             diameter = 2 * Math.Sqrt(input2.r / Math.PI);
-            Console.WriteLine($"Does Square with area = {input2.s} fits in Circle with area = {input2.r}?\n");
+            Console.WriteLine($"Does Square with area = {input2.s} fit in Circle with area = {input2.r}?\n");
             if (diagonal <= diameter)
                 Console.WriteLine("Yes. Square fits in circle");
             else
