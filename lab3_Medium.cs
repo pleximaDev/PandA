@@ -22,11 +22,6 @@ namespace Lab3_Medium
                 border + "\nTask #4:");
             Medium4();
             Console.WriteLine(border);
-
-            /*
-            var testArray = new int[] { 2, 3, 7, 0, -1, 4, 6 };
-            Console.WriteLine($"sum == ({string.Join(")+(", testArray[..5])})");
-            */
         }
 
         static private void Medium2()
