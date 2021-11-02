@@ -16,9 +16,9 @@ Here are all my solutions for labs from *Programming and Algorithmization* cours
 
 Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laboratory №5 | Laboratory №6
 ------------- | ------------- | ------------- | ------------- | ------------- | -------------
-[Level 1 tasks (Easy)](https://github.com/pleximaDev/PandA/blob/main/Lab1_Easy.cs)| [Level 1 tasks (Easy)](https://github.com/pleximaDev/PandA/blob/main/Lab2_Easy.cs) | [Level 1 tasks (Easy)](https://github.com/pleximaDev/PandA/blob/main/Lab3_Easy.cs) | [Level 1 tasks (Easy)]() | [Level 1 tasks (Easy)]() | [Level 1 tasks (Easy)]() |
-[Level 2 tasks (Medium)](https://github.com/pleximaDev/PandA/blob/main/Lab1_Medium.cs)| [Level 2 tasks (Medium)](https://github.com/pleximaDev/PandA/blob/main/Lab2_Medium.cs) | [Level 2 tasks (Medium)](/Lab3_Medium.cs) | [Level 2 tasks (Medium)]() | [Level 2 tasks (Medium)]() | [Level 2 tasks (Medium)]() |
-[Level 3 tasks (Hard)](https://github.com/pleximaDev/PandA/blob/main/Lab1_Hard.cs) | [Level 3 tasks (Hard)](https://github.com/pleximaDev/PandA/blob/main/Lab2_Hard.cs) | [Level 3 tasks (Hard)]() | [Level 3 tasks (Hard)]() | [Level 3 tasks (Hard)]() | [Level 3 tasks (Hard)]() |
+[Level 1 tasks (Easy)](Lab1_Easy.cs)| [Level 1 tasks (Easy)](Lab2_Easy.cs) | [Level 1 tasks (Easy)](Lab3_Easy.cs) | [Level 1 tasks (Easy)](Lab4_Easy.cs) | [Level 1 tasks (Easy)](Lab5_Easy.cs) | [Level 1 tasks (Easy)](Lab6_Easy.cs) |
+[Level 2 tasks (Medium)](Lab1_Medium.cs)| [Level 2 tasks (Medium)](Lab2_Medium.cs) | [Level 2 tasks (Medium)](Lab3_Medium.cs) | [Level 2 tasks (Medium)](Lab4_Medium.cs) | [Level 2 tasks (Medium)](Lab5_Medium.cs) | [Level 2 tasks (Medium)](Lab6_Medium.cs) |
+[Level 3 tasks (Hard)](Lab1_Hard.cs) | [Level 3 tasks (Hard)](Lab2_Hard.cs) | [Level 3 tasks (Hard)](Lab3_Hard.cs) | [Level 3 tasks (Hard)](Lab4_Hard.cs) | [Level 3 tasks (Hard)](Lab5_Hard.cs) | [Level 3 tasks (Hard)](Lab6_Hard.cs) |
 
 
 ***Tasks***
