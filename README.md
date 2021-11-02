@@ -57,6 +57,7 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    > y = (x * sin(pi/4) )/ (1 - 2x * cos(pi/4) + x^2)\
    > s = sum(1..inf){x^i * sin(i * pi/4)}\
    > While Math.Abs(Summation_Item(i, x)) >= eps\
+\
 ![formula](https://render.githubusercontent.com/render/math?math=\color{green}\large\y=\dfrac{x\sin(\dfrac{\pi}{4})}{1-2x\cos(\dfrac{\pi}{4})+x^2})\
 ![formula](https://render.githubusercontent.com/render/math?math=\color{green}\large\s=\displaystyle\sum_{n=1}^{\infty}x^i\sin(\dfrac{\pi}{4}))
 2. Laboratory №2
@@ -92,7 +93,15 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    > Third task:\
    > Determine how many elements of the one-dimensional array of size 8 are more than average value of elements of this array
    2. Level 2 (Medium):
-   > 
+   > \
+   > First task:\
+   > Find the sum of elements of the one-dimensional array that are located before the max element of the array\
+   > \
+   > Second task:\
+   > Double the elements that are located before the min element of the array\
+   > \
+   > Third task:\
+   > Replace the elements of the one-dimensional array that are located after the max element of the array with average value of the elements of the array
    3. Level 3 (Hard):
    > 
 1. Laboratory №4
