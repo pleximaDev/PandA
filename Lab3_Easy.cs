@@ -6,16 +6,17 @@ namespace Lab3_Easy
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("--------------------");
+            string border = new string('-', 30);
+            Console.WriteLine(border);
             Console.WriteLine("Task #7:");
             Easy7();
-            Console.WriteLine("--------------------\n\n\n" +
-                "--------------------\nTask #8:");
+            Console.WriteLine(border + "\n\n\n" +
+                border + "\nTask #8:");
             Easy8();
-            Console.WriteLine("--------------------\n\n\n" +
-                "--------------------\nTask #9:");
+            Console.WriteLine(border + "\n\n\n" +
+                border + "\nTask #9:");
             Easy9();
-            Console.WriteLine("--------------------");
+            Console.WriteLine(border);
         }
 
         static private void Easy7()
@@ -107,10 +108,7 @@ namespace Lab3_Easy
         {
             Console.Write("Array: [");
             for (int i = 0; i < array.Length; ++i)
-            {
                 Console.Write($" {array[i]} ");
-
-            }
             Console.WriteLine("]");
         }
     }
