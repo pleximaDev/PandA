@@ -26,7 +26,7 @@ namespace Lab3_Hard
 
             int prevIndx = 0;
 
-            Console.WriteLine($"\nOriginal array:\n\n[ {string.Join(" ", array)} ]");
+            PrintArray(array, $"\nOriginal array:\n\n");
 
             for (int j = 0; j < sizeOfArray; ++j)
             {
