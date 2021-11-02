@@ -38,7 +38,7 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    > s = cos(x)/x^0 + cos(2x)/x^1 + cos(3x)/x^2 + ... + cos(9x)/x^8
    2. Level 2 (Medium):
    > \
-   > Firsst task:\
+   > First task:\
    > _Calculate:_\
    > Sequence member of 1/1, 2/1, 3/2, ... that differs from previous less than 0.001\
    > Numerator and denominator of next member calculates by adding numerators and\
