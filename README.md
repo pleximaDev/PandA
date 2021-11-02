@@ -86,10 +86,13 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    > Calculate any task of level 2 for the case when number of input data is unknown. Ensure that the input terminates as soon as the input stream runs out.
 1. Laboratory №3
    1. Level 1 (Easy):
+   > \
    > First task:\
    > Replace elements with zeroes of the array (of size 7) that are more than average value of array elements\
+   > \
    > Second task:\
    > Count amount of negative elements of the one-dimensional array of size 6\
+   > \
    > Third task:\
    > Determine how many elements of the one-dimensional array of size 8 are more than average value of elements of this array
    2. Level 2 (Medium):
