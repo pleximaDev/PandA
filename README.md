@@ -106,7 +106,8 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    > Third task:\
    > Replace the elements of the one-dimensional array that are located after the max element of the array with average value of the elements of the array
    3. Level 3 (Hard):
-   > 
+   > \
+   > Order negative elements of the array in descending order, keeping the rest of the elements in the same positions
 1. Laboratory №4
    1. Level 1 (Easy):
    >
