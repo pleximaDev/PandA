@@ -8,7 +8,7 @@ namespace Lab3_Hard
 
         static void Main(string[] args)
         {
-            const int borderLength = 30;
+            const int borderLength = 35;
             string border = new string('-', borderLength);
             Console.WriteLine(border);
             Console.WriteLine("Task #8:");
@@ -23,13 +23,14 @@ namespace Lab3_Hard
              */
 
             double[] array = RandomizeArray(-15, 15);
-
             int prevIndx = 0;
+            bool isSwapped;
 
             PrintArray(array, $"\nOriginal array:\n\n");
 
             for (int j = 0; j < sizeOfArray; ++j)
             {
+                isSwapped = false;
                 prevIndx = 0;
                 for (int i = 0; i < sizeOfArray; ++i)
                     if (array[i] < 0
@@ -37,10 +38,10 @@ namespace Lab3_Hard
                         array[prevIndx] < 0
                         &&
                         array[i] > array[prevIndx])
-                        MySwap(array, i, prevIndx);
+                    { MySwap(array, i, prevIndx); isSwapped = true; }
                     else if (array[i] < 0) prevIndx = i;
+                if (!isSwapped) break;
             }
-
             PrintArray(array, "\n\nArray received by sorting negative elements in descending order " +
                 "keeping positive elements on their places:\n\n");
         }
