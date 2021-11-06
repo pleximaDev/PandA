@@ -88,7 +88,7 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    1. Level 1 (Easy):
    > \
    > First task:\
-   > Replace elements with zeroes of the array (of size 7) that are more than average value of array elements\
+   > Replace elements of the array (of size 7) with zeroes that are more than average value of array elements\
    > \
    > Second task:\
    > Count amount of negative elements of the one-dimensional array of size 6\
