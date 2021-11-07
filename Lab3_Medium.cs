@@ -33,13 +33,6 @@ namespace Lab3_Medium
              * that are located before the max element of the array
              */
 
-            /* 
-             * Assuming the first appearance of the maximum of elements of the array as current maximum index.
-             *        indxs  ==  0  1   2  3 4 5  6 7
-             * For cases like [ -2 -6 -10 -7 8 6 -3 8 ]
-             * maxIndx will keep index 4 of the first appearance of maximum == 8
-             */
-
             const int SIZE = sizeOfArray;
             double[] array = new double[SIZE];
             int maxIndx = 0;
@@ -59,9 +52,8 @@ namespace Lab3_Medium
             Console.WriteLine($"\nMax element of the array:\n" +
                 $"array[{maxIndx}] == {{{array[maxIndx]}}}\n");
 
-            for (int i = 0; i < SIZE; ++i)
-                if (i < maxIndx) sum += array[i];
-                else break;
+            for (int i = 0; i < maxIndx; ++i)
+                sum += array[i];
 
             ColorString("Sum", ConsoleColor.Black, ConsoleColor.Green);
             Console.Write($" of the elements that are located " +
@@ -69,6 +61,13 @@ namespace Lab3_Medium
                 $"is equal to sum == ({string.Join(") + (", array[..maxIndx])}) == ");
             ColorString($"{sum}\n", ConsoleColor.Black, ConsoleColor.Green);
         }
+
+        /* 
+             * Assuming the first appearance of the maximum of elements of the array as current maximum index.
+             *        indxs  ==  0  1   2  3 4 5  6 7
+             * For cases like [ -2 -6 -10 -7 8 6 -3 8 ]
+             * maxIndx will keep index 4 of the first appearance of maximum == 8
+             */
 
         static private void Medium3()
         {
