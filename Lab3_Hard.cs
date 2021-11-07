@@ -4,11 +4,14 @@ namespace Lab3_Hard
 {
     class Program
     {
-        public const int sizeOfArray = 12;
+        public const int
+            sizeOfArray = 12,
+            lbound = -15,
+            rbound = 15;
 
         static void Main(string[] args)
         {
-            const int borderLength = 35;
+            const int borderLength = 40;
             string border = new string('-', borderLength);
             Console.WriteLine(border);
             Console.WriteLine("Task #8:");
@@ -22,7 +25,7 @@ namespace Lab3_Hard
              * keeping the rest of the elements in the same positions
              */
 
-            double[] array = RandomizeArray(-15, 15);
+            double[] array = RandomizeArray(lbound, rbound);
             int prevIndx = 0;
             bool isSwapped;
 
@@ -42,8 +45,9 @@ namespace Lab3_Hard
                     else if (array[i] < 0) prevIndx = i;
                 if (!isSwapped) break;
             }
-            PrintArray(array, "\n\nArray received by sorting negative elements in descending order " +
-                "keeping positive elements on their places:\n\n");
+            PrintArray(array, "\n\nArray received by sorting negative " +
+                "elements in descending order keeping positive " +
+                "elements on their places:\n\n");
         }
 
         static private void
