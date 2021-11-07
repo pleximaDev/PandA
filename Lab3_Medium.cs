@@ -32,6 +32,13 @@ namespace Lab3_Medium
              * Find the sum of elements of the one-dimensional array
              * that are located before the max element of the array
              */
+            
+            /* 
+             * Assuming the first appearance of the maximum of elements of the array as current maximum index.
+             *        indxs  ==  0  1   2  3 4 5  6 7
+             * For cases like [ -2 -6 -10 -7 8 6 -3 8 ]
+             * maxIndx will keep index 4 of the first appearance of maximum == 8
+             */
 
             const int SIZE = sizeOfArray;
             double[] array = new double[SIZE];
@@ -60,13 +67,6 @@ namespace Lab3_Medium
                 $"is equal to sum == ({string.Join(") + (", array[..maxIndx])}) == ");
             ColorString($"{sum}\n", ConsoleColor.Black, ConsoleColor.Green);
         }
-
-        /* 
-             * Assuming the first appearance of the maximum of elements of the array as current maximum index.
-             *        indxs  ==  0  1   2  3 4 5  6 7
-             * For cases like [ -2 -6 -10 -7 8 6 -3 8 ]
-             * maxIndx will keep index 4 of the first appearance of maximum == 8
-             */
 
         static private void Medium3()
         {
