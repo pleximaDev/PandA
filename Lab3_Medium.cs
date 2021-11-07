@@ -52,8 +52,7 @@ namespace Lab3_Medium
             Console.WriteLine($"\nMax element of the array:\n" +
                 $"array[{maxIndx}] == {{{array[maxIndx]}}}\n");
 
-            for (int i = 0; i < maxIndx; ++i)
-                sum += array[i];
+            for (int i = 0; i < maxIndx; ++i) sum += array[i];
 
             ColorString("Sum", ConsoleColor.Black, ConsoleColor.Green);
             Console.Write($" of the elements that are located " +
@@ -90,9 +89,7 @@ namespace Lab3_Medium
             Console.WriteLine($"\nMin element of the array:\n" +
                 $"array[{minIndx}] == {{{array[minIndx]}}}\n");
 
-            for (int i = 0; i < SIZE; ++i)
-                if (i < minIndx) array[i] *= 2;
-                else break;
+            for (int i = 0; i < minIndx; ++i) array[i] *= 2;
 
             /* Output */
             Console.Write("Array after doubling elements before min element:\n[");
@@ -135,10 +132,8 @@ namespace Lab3_Medium
 
             Console.WriteLine($"\nMax element of the array:\n" +
                 $"array[{maxIndx}] == {{{array[maxIndx]}}}\n" +
-                $"\nAverage value of the elements of the array:\naverage == " +
-                (average % 1 == 0 ?
-                $"{average}" : $"{average,0:F3}") +
-                $"\n");
+                $"\nAverage value of the elements of the array:\n" +
+                $"average == {average}\n");
 
             for (int i = maxIndx + 1; i < SIZE; ++i) array[i] = average;
 
