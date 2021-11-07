@@ -4,14 +4,16 @@ namespace Lab3_Medium
 {
     class Program
     {
-        public const int sizeOfArray = 12;
+        private const int
+            sizeOfArray = 12,
+            lbound = -10, /* left bound of randomization */
+            rbound = 10; /* right bound of randomization */
 
         static public void Main(string[] args)
         {
-
-            const int borderLength = 30;
-
+            const int borderLength = 50;
             string border = new string('-', borderLength);
+
             Console.WriteLine(border);
             Console.WriteLine("Task #2:");
             Medium2();
@@ -48,16 +50,14 @@ namespace Lab3_Medium
             /* Input */
             Console.Write("Original array:\n[");
             for (int i = 0; i < SIZE; ++i)
-            {
-                array[i] = rand.Next(-10, 10);
-                Console.Write($" {array[i]} ");
-            }
+                Console.Write($" {array[i] = rand.Next(lbound, rbound)} ");
             Console.WriteLine("]");
 
             for (int i = 0; i < SIZE; ++i)
                 if (array[i] > array[maxIndx]) maxIndx = i;
 
-            Console.WriteLine($"\nMax element of the array:\narray[{maxIndx}] == {{{array[maxIndx]}}}\n");
+            Console.WriteLine($"\nMax element of the array:\n" +
+                $"array[{maxIndx}] == {{{array[maxIndx]}}}\n");
 
             for (int i = 0; i < SIZE; ++i)
                 if (i < maxIndx) sum += array[i];
@@ -68,12 +68,6 @@ namespace Lab3_Medium
                 $"before the max element array[{maxIndx}] == {array[maxIndx]} " +
                 $"is equal to sum == ({string.Join(") + (", array[..maxIndx])}) == ");
             ColorString($"{sum}\n", ConsoleColor.Black, ConsoleColor.Green);
-
-            /*
-            Console.WriteLine($"Sum of the elements that are located " +
-                $"before the max element array[{maxIndx}] == {array[maxIndx]} " +
-                $"is equal to {sum}");
-            */
         }
 
         static private void Medium3()
@@ -88,16 +82,14 @@ namespace Lab3_Medium
             /* Input */
             Console.Write("Original array:\n[");
             for (int i = 0; i < SIZE; ++i)
-            {
-                array[i] = rand.Next(-10, 10);
-                Console.Write($" {array[i]} ");
-            }
+                Console.Write($" {array[i] = rand.Next(lbound, rbound)} ");
             Console.WriteLine("]");
 
             for (int i = 0; i < SIZE; ++i)
                 if (array[i] < array[minIndx]) minIndx = i;
 
-            Console.WriteLine($"\nMin element of the array:\narray[{minIndx}] == {{{array[minIndx]}}}\n");
+            Console.WriteLine($"\nMin element of the array:\n" +
+                $"array[{minIndx}] == {{{array[minIndx]}}}\n");
 
             for (int i = 0; i < SIZE; ++i)
                 if (i < minIndx) array[i] *= 2;
@@ -108,16 +100,12 @@ namespace Lab3_Medium
             for (int i = 0; i < SIZE; ++i)
             {
                 if (i == minIndx)
-                    ColorString($" {array[minIndx]} ", ConsoleColor.Black, ConsoleColor.Green);
+                    ColorString($" {array[minIndx]} ",
+                        ConsoleColor.Black, ConsoleColor.Green);
                 else
                     Console.Write($" {array[i]} ");
             }
             Console.WriteLine("]");
-
-            /*
-              Console.WriteLine($"Array after doubling elements before min element:\n" +
-                $"[ {string.Join(" ", array)} ]");
-            */
         }
 
         static private void Medium4()
@@ -139,24 +127,27 @@ namespace Lab3_Medium
             Console.Write("Original array:\n[");
             for (int i = 0; i < SIZE; ++i)
             {
-                array[i] = rand.Next(-10, 10);
-                Console.Write($" {array[i]} ");
+                Console.Write($" {array[i] = rand.Next(lbound, rbound)} ");
                 average += array[i];
                 if (array[i] > array[maxIndx]) maxIndx = i;
             }
             Console.WriteLine("]");
-            average /= array.Length;
-            average = Math.Round(average, 3);
+            average = Math.Round(average/array.Length, 3);
 
-            Console.WriteLine($"Max element of the array:\narray[{maxIndx}] == {array[maxIndx]}\n" +
-                $"\nAverage value of the elements of the array:\naverage == {average}\n");
+            Console.WriteLine($"\nMax element of the array:\n" +
+                $"array[{maxIndx}] == {{{array[maxIndx]}}}\n" +
+                $"\nAverage value of the elements of the array:\naverage == " +
+                (average % 1 == 0 ?
+                $"{average}" : $"{average,0:F3}") +
+                $"\n");
 
             for (int i = maxIndx + 1; i < SIZE; ++i) array[i] = average;
 
-            Console.Write($"Output array received by replacing elements after max element with average value:\n" +
+            Console.Write($"Output array received by " +
+                $"replacing elements after max element with average value:\n" +
                 $"[ {string.Join(" ", array[..maxIndx])}");
             ColorString($" {array[maxIndx]} ", ConsoleColor.Black, ConsoleColor.Green);
-            Console.WriteLine($"{string.Join(" ", array[(maxIndx + 1)..])} ]");
+            Console.WriteLine($"{string.Join(" ", array[(maxIndx + 1)..] )} ]");
         }
 
         static private void ColorString
