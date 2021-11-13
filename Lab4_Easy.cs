@@ -1,22 +1,23 @@
 using System;
+using System.Text.RegularExpressions;
 
 namespace Lab4_Easy
 {
     class Program
     {
         private const int
-            lbound = -10, /* left bound of randomization */
-            rbound = 10, /* right bound of randomization */
-            fieldLen = 10;
+            lbound = -100, /* left bound of randomization */
+            rbound = 100, /* right bound of randomization */
+            fieldLen = 10,
+            borderLength = 70;
 
         static void Main(string[] args)
         {
-            //PrintVarName( () => A, $" == {A}");
-            //Easy20();
-            //Easy21();
-            Easy22();
-
-
+            PresentResult(
+                (() => Easy20(), nameof(Easy20)),
+                (() => Easy21(), nameof(Easy21)),
+                (() => Easy22(), nameof(Easy22))
+                );
         }
 
         static private void Easy20()
@@ -30,9 +31,9 @@ namespace Lab4_Easy
             int n = 6, m = 7;
             try
             {
-                Console.WriteLine("Enter number of rows of the array:\nn=");
+                Console.Write("Enter number of rows of the array:\nn=");
                 n = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter number of columns of the array:\nn=");
+                Console.Write("Enter number of columns of the array:\nm=");
                 m = int.Parse(Console.ReadLine());
             }
             catch (FormatException f)
@@ -65,15 +66,16 @@ namespace Lab4_Easy
                     }
                 }
                 PrintVarName( () => F, $"[{i}, {maxIndx}] == {F[i, maxIndx], 3} -- " +
-                    $"Max element; First negative: {negative.first, 3}; " +
-                    $"Last negative: {negative.last, 3}");
+                    $"Max element; First negative: {negative.first, 4}; " +
+                    $"Last negative: {negative.last, 4}");
                 F[i, maxIndx] = (negative.first + negative.last) / 2;
             }
 
             Console.WriteLine($"\n\nResult of replacing max elements of every row " +
                 $"with half-sum of first and last negative elements of this row:");
             //AdvancedPrintMatrix(F, () => F, 2, 0);
-            PrintColoredDiff(F, originalArray, 2, 2);
+            PrintColoredDiff(F, originalArray, 2, 2,
+                Console.BackgroundColor, ConsoleColor.Green);
         }
 
         static private void Easy21()
@@ -85,9 +87,10 @@ namespace Lab4_Easy
             const int n = 5, m = 7;
             double[,] H = new double[n, m];
             H = RandomizeArray(n, m);
+            double[,] originalArray = H.Clone() as double[,];
             for (int i = 0; i < n; ++i)
                 H[i, m - 1] = double.NaN;
-            AdvancedPrintMatrix(H, () => H, 2, 0);
+            AdvancedPrintMatrix(H, () => H, 2, 3);
 
             for (int i = 0; i < H.GetLength(0); ++i)
             {
@@ -96,7 +99,10 @@ namespace Lab4_Easy
                     if (H[i, j] > H[i, m - 1]) H[i, m - 1] = H[i, j];
             }
 
-            AdvancedPrintMatrix(H, () => H, 2, 0);
+            Console.WriteLine($"Resulting array with " +
+                $"max elements of every row in the last column:");
+            PrintColoredDiff(H, originalArray, 2, 1,
+                Console.BackgroundColor, ConsoleColor.Green);
         }
 
         static private void Easy22()
@@ -108,21 +114,31 @@ namespace Lab4_Easy
             const int n = 6, m = 8;
             double[,] Z = new double[n, m];
             Z = RandomizeArray(n, m);
+            double[,] originalArray = Z.Clone() as double[,];
             (int i, int j) maxIndx = (0, 0);
             (int n, double sum) arithmMean = (0, 0);
 
-            AdvancedPrintMatrix(Z, () => Z, 2, 0);
+            AdvancedPrintMatrix(Z, () => Z, 2, 2);
 
             for (int i = 0; i < Z.GetLength(0); ++i)
-                for (int j = 0; j < Z.GetLength(1) - 1; ++j)
+                for (int j = 0; j < Z.GetLength(1); ++j)
                 {
-                    if (Z[i, j] > Z[maxIndx.i, maxIndx.i]) maxIndx = (i, j);
+                    if (Z[i, j] > Z[maxIndx.i, maxIndx.j]) maxIndx = (i, j);
                     /* Assuming 0 is positive element too */
                     if (Z[i, j] >= 0) { ++arithmMean.n; arithmMean.sum += Z[i, j]; }
                 }
+            Console.WriteLine($"Max element: " +
+                $"Z[{maxIndx.i},{maxIndx.j}] == {Z[maxIndx.i, maxIndx.j]}\n\n" +
+                $"Arithmetic mean of {arithmMean.n} " +
+                $"positive element" +
+                (arithmMean.n == 1 ? $"" : $"s") +
+                $" equals to {arithmMean.sum/arithmMean.n, 0:F3}\n\n");
             Z[maxIndx.i, maxIndx.j] = arithmMean.sum / arithmMean.n;
 
-            AdvancedPrintMatrix(Z, () => Z, 2, 0);
+            Console.WriteLine($"Resulting array with max element " +
+                $"replaced by arithmetic mean of positive elements:");
+            PrintColoredDiff(Z, originalArray, 2, 1,
+                Console.BackgroundColor, ConsoleColor.Green);
         }
 
         static private double[,] RandomizeArray(int n, int m)
@@ -150,7 +166,9 @@ namespace Lab4_Easy
 
         static private void PrintColoredDiff
             (double[,] currArray, double[,] cmpArrray,
-            int upperIndents, int lowerIndents)
+            int upperIndents, int lowerIndents,
+            System.ConsoleColor backColor,
+            System.ConsoleColor foreColor)
         {
             Console.Write(new string('\n', upperIndents));
             for (int i = 0; i < currArray.GetLength(0); ++i)
@@ -166,7 +184,8 @@ namespace Lab4_Easy
                             currArray[i, j] % 1 == 0
                             ?
                             $"{currArray[i, j],fieldLen}" : $"{currArray[i, j],fieldLen:F3}",
-                            ConsoleColor.Black, ConsoleColor.Green);
+                            backColor, foreColor);
+                            /* ConsoleColor.Black, ConsoleColor.Green */
                 Console.WriteLine();
             }
 
@@ -261,6 +280,21 @@ namespace Lab4_Easy
             //var val = input.Compile()();
             //Console.WriteLine($"{member.Member.Name}: {val}");
             Console.WriteLine($"{member.Member.Name}");
+        }
+
+        static private void PresentResult
+            ( params (Action, string)[] functions )
+        {
+            string border = new string('-', borderLength),
+                digitsPttrn = @"\d+$";
+            Regex rgx = new Regex(digitsPttrn);
+
+            foreach ((Action call, string name) function in functions)
+            {
+                Console.WriteLine($"{border}\nTask #{rgx.Match(function.name)}:\n");
+                function.call();
+                Console.WriteLine(border + "\n\n\n");
+            }
         }
 
         static private void ColorString
