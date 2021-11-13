@@ -1,7 +1,7 @@
 # PandA
-## *Programming and Algorithmization* course in _MISiS_
+## *Programming and Algorithmization* course at _MISiS_
 ### Description: 
-Here are all my solutions for labs from *Programming and Algorithmization* course in _MISiS_
+Here are all my solutions for labs from *Programming and Algorithmization* course at _MISiS_
 
 ***Completion***
 
@@ -84,7 +84,7 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    3. Level 3 (Hard):
    > \
    > Calculate any task of level 2 for the case when number of input data is unknown. Ensure that the input terminates as soon as the input stream runs out.
-1. Laboratory №3
+3. Laboratory №3
    1. Level 1 (Easy):
    > \
    > First task:\
@@ -108,21 +108,96 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    3. Level 3 (Hard):
    > \
    > Order negative elements of the array in descending order, keeping the rest of the elements in the same positions
-1. Laboratory №4
+4. Laboratory №4
    1. Level 1 (Easy):
+   > \
+   > First task:\
+   > Replace max element in every row of the matrix F \[n x m\] with half-sum of first and last negative elements in the row
+   > \
+   > Second task:\
+   > The first 6 columns are filled with values in the matrix \[5 x 7\]. Put max elements of rows in the last column
+   > \
+   > Third task:\
+   > Replace max element of the matrix Z \[6 x 8\] with arithmetic mean of positive elements
+   2. Level 2 (Medium):
+   > \
+   > First task:\
+   > 
+   > \
+   > Second task:\
+   > 
+   > \
+   > Third task:\
+   > 
+   3. Level 3 (Hard):
+   > \
+   > First task:\
+   > 
+   > \
+   > Second task:\
+   > 
+   > \
+   > Third task:\
+   >
+5. Laboratory №5
+   1. Level 1 (Easy):
+   > \
+   > First task:\
+   > 
+   > \
+   > Second task:\
+   > 
+   > \
+   > Third task:\
    >
    2. Level 2 (Medium):
+   > \
+   > First task:\
+   > 
+   > \
+   > Second task:\
+   > 
+   > \
+   > Third task:\
    >
    3. Level 3 (Hard):
-3. Laboratory №5
+   > \
+   > First task:\
+   > 
+   > \
+   > Second task:\
+   > 
+   > \
+   > Third task:\
+   >
+6. Laboratory №6
    1. Level 1 (Easy):
+   > \
+   > First task:\
+   > 
+   > \
+   > Second task:\
+   > 
+   > \
+   > Third task:\
    >
    2. Level 2 (Medium):
+   > \
+   > First task:\
+   > 
+   > \
+   > Second task:\
+   > 
+   > \
+   > Third task:\
    >
    3. Level 3 (Hard):
-5. Laboratory №6
-   1. Level 1 (Easy):
+   > \
+   > First task:\
+   > 
+   > \
+   > Second task:\
+   > 
+   > \
+   > Third task:\
    >
-   2. Level 2 (Medium):
-   >
-   3. Level 3 (Hard):
