@@ -125,7 +125,7 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    > Given a matrix of size 7 by 5.\
    > If the number of positive elements of a column is greater than the number of negative ones,\
    > then replace the maximum element of this column with 0,\
-   > otherwise replace the maximum element with the index of the maximum element of this column
+   > otherwise replace the maximum element with the index of the maximum element of this column\
    > \
    > Second task:\
    > 
