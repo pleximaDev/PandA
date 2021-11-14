@@ -128,20 +128,25 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    > otherwise replace the maximum element with the index of the maximum element of this column\
    > \
    > Second task:\
-   > 
+   > Given a matrix A of size 10 by 5.\
+   > Convert the matrix as follows:\
+   > Replace the first element of a column with the sum of the column\
+   > elements after the maximum element if the maximum element is\
+   > in the first half of the column. Otherwise, leave the column unchanged\
    > \
    > Third task:\
-   > 
+   > Given a matrix A of size 7 by 5 and an array B of size 5.\
+   > Replace the maximum column element with the appropriate\
+   > element of the array B if this element is larger than the maximum\
+   > column element found. Otherwise, do not replace
    3. Level 3 (Hard):
    > \
-   > First task:\
-   > 
-   > \
-   > Second task:\
-   > 
-   > \
-   > Third task:\
-   >
+   > In a matrix of size n × n,\
+   > form two one-dimensional arrays:\
+   > in one send the upper triangle of the matrix,\
+   > including elements of the main diagonal,\
+   > to the other - the lower triangle.\
+   > Print the top and bottom triangles by rows
 5. Laboratory №5
    1. Level 1 (Easy):
    > \
@@ -165,13 +170,6 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    >
    3. Level 3 (Hard):
    > \
-   > First task:\
-   > 
-   > \
-   > Second task:\
-   > 
-   > \
-   > Third task:\
    >
 6. Laboratory №6
    1. Level 1 (Easy):
@@ -196,11 +194,4 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    >
    3. Level 3 (Hard):
    > \
-   > First task:\
-   > 
-   > \
-   > Second task:\
-   > 
-   > \
-   > Third task:\
    >
