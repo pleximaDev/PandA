@@ -7,7 +7,7 @@ Here are all my solutions for labs from *Programming and Algorithmization* cours
 
 - [x] Laboratory №1
 - [x] Laboratory №2
-- [ ] Laboratory №3
+- [x] Laboratory №3
 - [ ] Laboratory №4
 - [ ] Laboratory №5
 - [ ] Laboratory №6
