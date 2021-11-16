@@ -16,9 +16,9 @@ namespace Lab4_Hard
         static void Main(string[] args)
         {
             DisplayResult(
-            (() => Hard2(), nameof(Hard2) )
-
-            //(() => Hard6A(), nameof(Hard6A))
+            //(() => Hard2(), nameof(Hard2)),
+            (() => Hard6A(), nameof(Hard6A)),
+            (() => Hard6B(), nameof(Hard6B))
             );
         }
 
@@ -38,14 +38,162 @@ namespace Lab4_Hard
                 inp;
 
             double[,] matrix;
+            double[] triU,
+                triL;
 
             Console.Write($"Enter number of rows and columns of the square matrix:\nn = ");
             Console.WriteLine($"\nThe square {nameof(matrix)} of size [" +
                 $"{n = int.Parse((((inp = Console.ReadLine()) == "") ? null : inp) ?? defaultN)}" +
                 $" x {n}]");
 
-            AdvancedPrintMatrix(matrix = RandomizeArray(n, n, "int"), () => matrix, 2, 2);
+            triU = new double[(n * n - n) / 2 + n]; /* with diag elements */
+            triL = new double[(n * n - n) / 2];
 
+            AdvancedPrintMatrix(matrix = RandomizeArray(n, n, "int"), () => matrix, 2, 3);
+
+            for (int i = 0, l = 0, m = 0; i < n; ++i)
+                for (int j = 0; j < n; ++j)
+                    if (j < i) triL[l++] = matrix[i, j];
+                    else triU[m++] = matrix[i, j];
+
+            Console.WriteLine($"Upper triangular part of {nameof(matrix)} " +
+                $"with diagonal elements:\n");
+
+            for (int i = 0, delimeter = n, m = n; i < triU.Length; ++i)
+            {
+                Console.Write(
+                    triU[i] % 1 == 0
+                    ?
+                    $"{triU[i],fieldLen}"
+                    :
+                    $"{triU[i],fieldLen:F3}"
+                );
+                
+                if(--delimeter <= 0)
+                {
+                    delimeter = --m;
+                    if (m > 0)
+                        Console.Write(
+                            $"\n{new string(' ', (n - m) * fieldLen)}"
+                        );
+                }
+            }
+
+            Console.WriteLine($"\n\nLower triangular part of {nameof(matrix)}:\n");
+
+            for (int i = 0, delimeter = 0, m = 0; i < triL.Length; ++i)
+            {
+                Console.Write(
+                    triL[i] % 1 == 0
+                    ?
+                    $"{triL[i],fieldLen}"
+                    :
+                    $"{triL[i],fieldLen:F3}"
+                );
+                
+                if (++delimeter > m)
+                {
+                    ++m;
+                    delimeter = 0;
+                    Console.WriteLine();
+                }
+            }
+
+        }
+
+        static private void Hard6B()
+        {
+            /*  Task:
+             * In a matrix of size n × n,
+             * form two one-dimensional arrays:
+             * in one send the upper triangle of the matrix,
+             * including elements of the main diagonal,
+             * to the other - the lower triangle.
+             * Print the top and bottom triangles by rows
+             */
+
+            int n;
+            string defaultN = "6",
+                inp;
+
+            double[] matrix,
+                triU, triL;
+
+            Console.Write($"Enter number of rows and columns of the square matrix:\nn = ");
+            Console.WriteLine($"\nThe square {nameof(matrix)} of size [" +
+                $"{n = int.Parse((((inp = Console.ReadLine()) == "") ? null : inp) ?? defaultN)}" +
+                $" x {n}]");
+
+            triU = new double[(n * n - n) / 2 + n]; /* with diag elements */
+            triL = new double[(n * n - n) / 2];
+
+            matrix = Randomize1DArray(n, "int");
+
+            for (int i = 0; i < matrix.Length; ++i)
+            {
+                Console.Write(
+                    matrix[i] % 1 == 0
+                    ?
+                    $"{matrix[i],fieldLen}"
+                    :
+                    $"{matrix[i],fieldLen:F3}"
+                );
+                if ((i + 1) % n == 0) Console.WriteLine();
+            }
+
+            bool isLower = false;
+            for (int i = 0, l = 0, u = 0, cntr = 0, t = 1; i < matrix.Length; ++i)
+            {
+                if (isLower) triL[l++] = matrix[i];
+                else triU[u++] = matrix[i];
+                if ((i + 1) % n == 0) { isLower = true; t++; }
+                if (cntr == t) isLower = false;
+            }
+
+                
+
+            Console.WriteLine($"Upper triangular part of {nameof(matrix)} " +
+                $"with diagonal elements:\n");
+
+            for (int i = 0, delimeter = n, m = n; i < triU.Length; ++i)
+            {
+                Console.Write(
+                    triU[i] % 1 == 0
+                    ?
+                    $"{triU[i],fieldLen}"
+                    :
+                    $"{triU[i],fieldLen:F3}"
+                );
+
+                if (--delimeter <= 0)
+                {
+                    delimeter = --m;
+                    if (m > 0)
+                        Console.Write(
+                            $"\n{new string(' ', (n - m) * fieldLen)}"
+                        );
+                }
+            }
+
+            Console.WriteLine($"\n\nLower triangular part of {nameof(matrix)}:\n");
+
+            for (int i = 0, delimeter = 0, m = 0; i < triL.Length; ++i)
+            {
+                Console.Write(
+                    triL[i] % 1 == 0
+                    ?
+                    $"{triL[i],fieldLen}"
+                    :
+                    $"{triL[i],fieldLen:F3}"
+                );
+
+                if (++delimeter > m)
+                {
+                    ++m;
+                    delimeter = 0;
+                    Console.WriteLine();
+                }
+            }
 
         }
 
@@ -94,7 +242,7 @@ namespace Lab4_Hard
                 $"{n = int.Parse((((inp = Console.ReadLine()) == "") ? null : inp) ?? defaultN)}" +
                 $" x {n}]");
 
-            AdvancedPrintMatrix(matrix = RandomizeArray(n, n, "ones"), () => matrix, 2, 2);
+            AdvancedPrintMatrix(matrix = RandomizeArray(n, n, "double"), () => matrix, 2, 2);
             double[,] originalArray = matrix.Clone() as double[,];
 
             List<int> listI =
@@ -143,6 +291,8 @@ namespace Lab4_Hard
                             rndArray[i, j] = rand.Next(lbound, rbound) + rand.NextDouble();
                             break;
                         case "zero":
+                        case "zeros":
+                        case "0":
                             rndArray[i, j] = 0;
                             break;
                         case "identity":
@@ -152,6 +302,7 @@ namespace Lab4_Hard
                                     ("The matrix must be square [n x n]");
                             rndArray[i, j] = (i == j) ? 1 : 0;
                             break;
+                        case "one":
                         case "ones":
                         case "1":
                             rndArray[i, j] = 1;
@@ -161,6 +312,45 @@ namespace Lab4_Hard
                                 .ComponentModel
                                 .InvalidEnumArgumentException();
                     }
+            return rndArray;
+        }
+
+        static private double[] Randomize1DArray(int n, string type)
+        {
+            double[] rndArray = new double[n];
+            Random rand = new Random();
+
+            for (int i = 0; i < rndArray.Length; ++i)
+                switch (type.ToLower())
+                {
+                    case "int":
+                    case "integer":
+                    case "i":
+                        rndArray[i] = rand.Next(lbound, rbound);
+                        break;
+                    case "double":
+                    case "floating-point":
+                    case "float":
+                    case "d":
+                    case "f":
+                    case "fp":
+                        rndArray[i] = rand.Next(lbound, rbound) + rand.NextDouble();
+                        break;
+                    case "zero":
+                    case "zeros":
+                    case "0":
+                        rndArray[i] = 0;
+                        break;
+                    case "one":
+                    case "ones":
+                    case "1":
+                        rndArray[i] = 1;
+                        break;
+                    default:
+                        throw new System
+                            .ComponentModel
+                            .InvalidEnumArgumentException();
+                }
             return rndArray;
         }
 
@@ -243,7 +433,7 @@ namespace Lab4_Hard
             (params (Action, string)[] functions)
         {
             string border = new string('-', borderLength),
-                digitsPttrn = @"\d+$";
+                digitsPttrn = @"\d+";
             Regex rgx = new Regex(digitsPttrn);
 
             foreach ((Action call, string name) function in functions)
