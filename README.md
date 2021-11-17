@@ -141,7 +141,7 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    > column element found. Otherwise, do not replace
    3. Level 3 (Hard):
    > \
-   > In a matrix of size n × n,\
+   > Given a matrix of size n × n,\
    > form two one-dimensional arrays:\
    > in one send the upper triangle of the matrix,\
    > including elements of the main diagonal,\
