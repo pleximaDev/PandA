@@ -15,8 +15,9 @@ namespace Lab4_Hard
 
         static void Main(string[] args)
         {
+
             DisplayResult(
-            //(() => Hard2(), nameof(Hard2)),
+            /* (() => Hard2(), nameof(Hard2)), */
             (() => Hard6A(), nameof(Hard6A)),
             (() => Hard6B(), nameof(Hard6B))
             );
@@ -24,6 +25,7 @@ namespace Lab4_Hard
 
         static private void Hard6A()
         {
+            /* two-dimensional array version */
             /*  Task:
              * In a matrix of size n × n,
              * form two one-dimensional arrays:
@@ -103,8 +105,9 @@ namespace Lab4_Hard
 
         static private void Hard6B()
         {
+            /* 1d array version */
             /*  Task:
-             * In a matrix of size n × n,
+             * Given a matrix of size n × n,
              * form two one-dimensional arrays:
              * in one send the upper triangle of the matrix,
              * including elements of the main diagonal,
@@ -122,35 +125,35 @@ namespace Lab4_Hard
             Console.Write($"Enter number of rows and columns of the square matrix:\nn = ");
             Console.WriteLine($"\nThe square {nameof(matrix)} of size [" +
                 $"{n = int.Parse((((inp = Console.ReadLine()) == "") ? null : inp) ?? defaultN)}" +
-                $" x {n}]");
+                $" x {n}]\n");
+
+            Console.WriteLine($"{nameof(matrix)}'s length: {n * n}\n" +
+                $"{nameof(triU)}'s length: {(n * n - n) / 2 + n}\n" +
+                $"{nameof(triL)}'s length: {(n * n - n) / 2}\n");
 
             triU = new double[(n * n - n) / 2 + n]; /* with diag elements */
             triL = new double[(n * n - n) / 2];
 
-            matrix = Randomize1DArray(n, "int");
+            matrix = Randomize1DArray(n * n, "int");
 
             for (int i = 0; i < matrix.Length; ++i)
             {
                 Console.Write(
-                    matrix[i] % 1 == 0
+                    (matrix[i] % 1 == 0
                     ?
                     $"{matrix[i],fieldLen}"
                     :
-                    $"{matrix[i],fieldLen:F3}"
+                    $"{matrix[i],fieldLen:F3}") +
+                    (((i + 1) % n) == 0 ? $"\n": $"")
                 );
-                if ((i + 1) % n == 0) Console.WriteLine();
             }
 
-            bool isLower = false;
-            for (int i = 0, l = 0, u = 0, cntr = 0, t = 1; i < matrix.Length; ++i)
+            for (int i = 0, lowIndx = 0, upperIndx = 0, lowIters = 0; i < matrix.Length; ++i)
             {
-                if (isLower) triL[l++] = matrix[i];
-                else triU[u++] = matrix[i];
-                if ((i + 1) % n == 0) { isLower = true; t++; }
-                if (cntr == t) isLower = false;
-            }
-
-                
+                if (i % n == 0) lowIters = i / n;
+                if (lowIters > 0) { triL[lowIndx++] = matrix[i]; --lowIters; }
+                else triU[upperIndx++] = matrix[i];
+            }   
 
             Console.WriteLine($"Upper triangular part of {nameof(matrix)} " +
                 $"with diagonal elements:\n");
