@@ -151,13 +151,19 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    1. Level 1 (Easy):
    > \
    > First task:\
-   > 
+   > Determine how many ways a team of 5 people can be selected from 8 candidates; out of 10 candidates; out of 11 candidates.\
    > \
    > Second task:\
-   > 
+   > Two triangles are given by the lengths of their sides a, b and c.
+   > Determine the triangle with a larger area by calculating the areas of the triangles according to Heron's formula.\
    > \
    > Third task:\
-   >
+   > Two cyclists simultaneously start moving from the same point.\
+   > The first starts moving at a speed of 10 km / h and evenly increases the speed by 1 km / h.\
+   > The second begins to move at a speed of 9 km / h and evenly increases the speed by 1.6 km / h.\
+   > Determine:\
+   > a) which cyclist will overcome the greater distance in 1 hour, in 4 hours;\
+   > b) when the second cyclist catches up with the first.
    2. Level 2 (Medium):
    > \
    > First task:\
