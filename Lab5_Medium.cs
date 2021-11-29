@@ -14,7 +14,7 @@ namespace Lab5_Medium
 
         static void Main(string[] args)
         {
-            DisplayResult(
+            DisplayResults(
                 (Medium20, nameof(Medium20)),
                 (Medium21, nameof(Medium21)),
                 (Medium22, nameof(Medium22))
@@ -35,6 +35,7 @@ namespace Lab5_Medium
             ZeroColumnTrimMatrix(matrix1, out matrix1);
             ZeroColumnTrimMatrix(matrix2, out matrix2);
 
+            Console.WriteLine($"Matrices after deletion of non-negative columns:");
             AdvancedPrintMatrix(matrix1, () => matrix1, 2, 2);
             AdvancedPrintMatrix(matrix2, () => matrix2, 2, 2);
         }
@@ -231,7 +232,7 @@ namespace Lab5_Medium
             Console.Write(new string('\n', lowerIndents));
         }
 
-        private static void DisplayResult
+        private static void DisplayResults
             (params (Action, string)[] functions)
         {
             string border = new string('-', borderLength),
