@@ -7,10 +7,10 @@ namespace Lab5_Medium
     class Program
     {
         private const int
-            lbound = -100, /*  left bound of randomization */
-            rbound = 100, /* right bound of randomization */
-            fieldLen = 10,
-            borderLength = 70;
+            lbound       = -100, /*  left bound of randomization */
+            rbound       =  100, /* right bound of randomization */
+            fieldLen     =   10,
+            borderLength =   70;
 
         static void Main(string[] args)
         {
