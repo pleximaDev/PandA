@@ -58,7 +58,6 @@ namespace Lab5_Medium
             }
         }
 
-
         private static void Medium21()
         {
             const int n = 5;
@@ -114,7 +113,6 @@ namespace Lab5_Medium
                 string.Join("  ", negColElems)
                 );
         }
-
 
         private static void AmountNegRowElems(double[,] matrix, out double[] array1d)
         {
