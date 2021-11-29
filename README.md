@@ -167,13 +167,16 @@ Laboratory №1 | Laboratory №2 | Laboratory №3 | Laboratory №4 | Laborato
    2. Level 2 (Medium):
    > \
    > First task:\
-   > 
+   > In the two specified matrices, delete all columns that do not contain zero elements. Perform deletion of the matrix's column as a method.\
    > \
    > Second task:\
-   > 
+   > For two given square matrices, make one-dimensional arrays of the minimum elements of the rows 
+   > located to the right of the elements of the main diagonal (including the diagonal). 
+   > The formation of a one-dimensional array should be formalized in the form of a method.\
    > \
    > Third task:\
-   >
+   > For a given matrix, form two one-dimensional arrays consisting of the number of negative row elements and the maximum among the negative column elements. 
+   > Use methods.
    3. Level 3 (Hard):
    > \
    >
