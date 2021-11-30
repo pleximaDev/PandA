@@ -1,6 +1,5 @@
 using System;
 using System.Text.RegularExpressions;
-using System.Collections.Generic;
 
 namespace Lab5_Hard
 {
@@ -13,6 +12,8 @@ namespace Lab5_Hard
                 (Hard5, nameof(Hard5))
                 );
         }
+
+        delegate double approx (double i, double x);
 
         private static void Hard1()
         {
@@ -44,7 +45,7 @@ namespace Lab5_Hard
                 Console.WriteLine($"\t{x,3:F1}\t|\t{Sum(func2, x, 1),0:F3}\t\t|\t{func2.f_analytical(x),0:F3}");
         }
 
-        private static double Sum(Function fnc, double x, double startPnt = 0, double eps = 0.0001)
+        private static double Sum(Function fnc, double x, double startPnt = 0, double eps = 1e-5)
         {
             double sum = 0;
             double i = startPnt;
@@ -62,7 +63,7 @@ namespace Lab5_Hard
             public double h;                          /*  step  */
 
             public Function
-                (Func<double, double, double> f_approximation,
+                (approx f_approximation,
                 Func<double, double> f_analytical,
                 (double, double) interval, double h)
             {
