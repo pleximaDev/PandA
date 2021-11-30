@@ -57,7 +57,7 @@ namespace Lab5_Hard
 
         struct Function
         {
-            public Func<double, double, double> f_approximation;
+            public approx f_approximation;
             public Func<double, double> f_analytical;
             public (double a, double b) interval;     /* [a, b] */
             public double h;                          /*  step  */
