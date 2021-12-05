@@ -107,35 +107,6 @@ namespace Lab6_Easy
                 numOfParticipants = 20,
                 maxScore = 10;
 
-            Action<Participant[]> sortByResults = (participants) =>
-            {
-                for (int j = 0; j < participants.GetLength(0) - 1; ++j)
-                    for (int i = 0; i < participants.GetLength(0) - 1; ++i)
-                        if
-                        (
-                        (participants[i].firstAttempt + participants[i].secondAttempt)
-                        <
-                        (participants[i + 1].firstAttempt + participants[i + 1].secondAttempt))
-                        {
-                            Participant temp = participants[i];
-                            participants[i] = participants[i + 1];
-                            participants[i + 1] = temp;
-                        }
-            };
-
-            Action<Participant[]> displayByTable = (participants) =>
-            {
-                mt.wrtLn($"\tName\t|\tSociety\t|\tFirst attempt\t|\tSecond attempt\t");
-                foreach (var participant in participants)
-                {
-                    mt.wrtLn($"\t{participant.name}\t|" +
-                        $"\t{participant.society}\t|" +
-                        $"\t{participant.firstAttempt}\t|" +
-                        $"\t{participant.secondAttempt}\t");
-                }
-                
-            };
-
             Participant[] participants = new Participant[numOfParticipants];
 
             for (int i = 0; i < numOfParticipants; ++i)
